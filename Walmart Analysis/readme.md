@@ -39,15 +39,33 @@ The dataset was obtained from the Kaggle Walmart Sales Forecasting Competition. 
 # **Analysis List**
 
 1.	Product Analysis
-Conduct analysis on the data to understand the different product lines, the product
- lines performing best and the product lines that need to be improved.
+Conduct analysis on the data to understand the different product lines, the product lines performing best and the product lines that need to be improved.
 2.	Sales Analysis
-This analysis aims to answer the question of the sales trends of product. The result of 
-this can help measure the effectiveness of each sales strategy the business applies and 
-what must do to gain more sales.
+This analysis aims to answer the question of the sales trends of product. The result of this can help measure the effectiveness of each sales strategy the business applies and what must do to gain more sales.
 3.	Customer Analysis
-This analysis aims to uncover the different customers segment, purchase trends and 
-the profitability of each customer segment.
+This analysis aims to uncover the different customers segment, purchase trends and the profitability of each customer segment.
+
+
+# **Step by step**
+
+1.	Data Wrangling 
+This is the first step where inspection of data is done to make sure NULL values and missing values are detected and data replacement methods are used to replace,missing or NULL values.
+-	First, Build a database 
+-	Second, Create table and insert the data
+-	Third ,select columns with null values in them. There are no null values
+-	 in our database as in creating  the tables, we set NOT NULL for each field, hence null values are filtered out
+
+2.	Feature Engineering, this will help use generate some new columns from existing ones.
+-	Add a new column name time_of_day to give insight of sales in the morning, afternoon and evening. This will help answer the question 
+on which part of the day most sales are made.
+-	Add a new column named day_name that contains the extracted days of the week on which the given transaction took place (Mon,Tue,
+Wed,Thu,Fri). This will help answer the question on which week 
+of the day each branch is busiest.
+-	Add a new column named month_name that contains the extracted
+ months of the year on which the given transaction took place (Jan, 
+Feb, Mar). Help determine which month of the year has the most sales
+And profit.
+3.	Exploratory Data Analysis (EDA) ,Exploratory data analysis is done to answer the listed questions and aims of this project.
 
 
 

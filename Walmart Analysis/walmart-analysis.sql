@@ -121,3 +121,43 @@ select customer_type, AVG(VAT) as most_vat from sales group by customer_type ord
 - customer type that pays the most in VAT is Member.
 
 
+
+-----------------------# *CUSTOMER*--------------------------------------------------
+# 1. How many unique customer types does the data have?
+select distinct customer_type from sales;
+-Customer type that data have is 2, Normal dan Member
+---------------------------------------
+# 2. How many unique payment methods does the data have?
+select distinct payment_method from sales;
+- There is 3 payment method (Credit Card, Ewallet, dan Cash)
+---------------------------------------
+# 3. What is the most common customer type?
+-The most common is Member with total 499
+---------------------------------------
+# 4. Which customer type buys the most?
+select customer_type, count(*) from sales group by customer_type;
+-The member is the most buys customer type
+---------------------------------------
+# 5. What is the gender of most of the customer?
+select gender, count(*) as total_gender from sales group by gender order by total_gender desc;
+- The gender Male is the most of customer
+-----------------------------------------
+# 6. What is the gender distribution per branch?
+SELECT gender, COUNT(*) as gender_cnt FROM sales WHERE branch = "C" GROUP BY gender ORDER BY gender_cnt DESC;
+-The distribution is not affect with branch
+------------------------------------------
+# 7. Which Time of the day do customers give most rating?
+SELECT time_of_day, AVG(rating) AS avg_rating FROM sales WHERE branch = "A" GROUP BY time_of_day ORDER BY avg_rating DESC;
+-Branch A and C are doing well in ratings, branch B needs to do a little more to get better ratings.
+-------------------------------------------
+# 8. Which time of the day do customers give most ratings per branch?
+SELECT time_of_day, AVG(rating) AS avg_rating FROM sales WHERE branch = "A" GROUP BY time_of_day ORDER BY avg_rating DESC;
+-Branch A and C are doing well in ratings, branch B needs to do a little more to get better ratings.
+-------------------------------------------
+# 9. Which day of the week has the best average ratings?
+SELECT day_name, AVG(rating) AS avg_rating FROM sales GROUP BY day_name ORDER BY avg_rating DESC;
+-Mon, Tue and Friday are the top best days for good ratings why is that the case, how many sales are made on these days?
+-------------------------------------------
+# 10. Which day of the week has the best average ratings per branch?
+SELECT day_name, COUNT(day_name) total_sales FROM sales WHERE branch = "C" GROUP BY day_name ORDER BY total_sales DESC;
+-Tuesday and saturday has best average rating per branch.
